@@ -18,17 +18,7 @@ const body = document.querySelector("body");
 const tbody = document.querySelector(".tbody");
 
 // main elements
-
-toLog.addEventListener("click", () => {
-  formBack.classList.add("loginActive");
-});
-toReg.addEventListener("click", () => {
-  formBack.classList.remove("loginActive");
-});
-
 const apiLink = "https://679e2ea0946b0e23c062c4e8.mockapi.io/users/user";
-
-// getData function for getting API data
 const getData = async (link) => {
   const req = await fetch(link);
   const data = await req.json();
@@ -36,6 +26,19 @@ const getData = async (link) => {
   identify(data);
   writeData(data);
 };
+if(localStorage.getItem("enter") == "true"){
+    body.classList.add("enter")
+    getData(apiLink)
+}
+toLog.addEventListener("click", () => {
+  formBack.classList.add("loginActive");
+});
+toReg.addEventListener("click", () => {
+  formBack.classList.remove("loginActive");
+});
+
+
+// getData function for getting API data
 
 // getData(apiLink)
 const logData = (datab) => {
@@ -56,14 +59,24 @@ const postData = async (link, newData) => {
 };
 
 // registration function
-registerBtn.addEventListener("click", () => {
-  const newUser = {
-    fullName: fullName.value,
-    email: email.value,
-    login: userLogin.value,
-    password: userPassword.value,
-  };
-  postData(apiLink, newUser);
+registerBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (userPassword.value == confirimPassword.value) {
+    formBack.classList.add("loginActive");
+    const newUser = {
+      fullName: fullName.value,
+      email: email.value,
+      login: userLogin.value,
+      password: userPassword.value,
+    };
+    fullName.value = "";
+    email.value = "";
+    userLogin.value = "";
+    userPassword.value = "";
+    postData(apiLink, newUser);
+  } else {
+    alert("Parollarni tekshiring!");
+  }
 });
 
 const identify = (DB) => {
@@ -72,6 +85,7 @@ const identify = (DB) => {
       loginInput.value == user.login &&
       passwordInput.value == user.password
     ) {
+        localStorage.setItem("enter", "true")
       body.classList.add("enter");
     } else {
       console.log("parol login xato");
