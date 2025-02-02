@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Users</title>
+  </head>
+  <body>
+    <div class="registration">
+      <div class="back-wind">
+        <div class="signInQues">
+          <h2 class="ques">Allaqachon hisobingiz bormi?</h2>
+          <button class="toLog">Sign In</button>
+        </div>
+        <div class="signUpQues">
+          <h2 class="ques">Hali hisobingiz yo'qmi</h2>
+          <button class="toReg">Sign Up</button>
+        </div>
+        <div class="form-back">
+          <form class="login" action="#">
+            <h2>Login</h2>
+            <input class="loginInput" type="text" placeholder="Login..." />
+            <input
+              class="passwordInput"
+              type="password"
+              placeholder="Password..."
+            />
+            <button class="loginBtn">Kirish</button>
+          </form>
+          <form action="#" class="register">
+            <h2>Ro'yxatdan o'tish</h2>
+            <input type="text" class="fullName" placeholder="Full name" />
+            <input type="email" class="email" placeholder="Email" />
+            <input type="text" class="userLogin" placeholder="Login" />
+            <input
+              type="password"
+              class="userPassword"
+              placeholder="Password"
+            />
+            <input
+              type="password"
+              class="confirimPassword"
+              placeholder="Confirim Password"
+            />
+            <button class="registerBtn">Ro'yxatdan o'tish</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <main>
+      <div class="container">
+        <div class="title">
+          <h1>Ushbu sayt foydalanuvchilari ma`lumotlari</h1>
+        </div>
+        <div class="data">
+          <table border="1">
+            <thead>
+              <tr>
+                <th>№</th>
+                <th>FIO</th>
+                <th>Email</th>
+                <th>Login</th>
+                <th>Parol</th>
+              </tr>
+            </thead>
+            <tbody class="tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
