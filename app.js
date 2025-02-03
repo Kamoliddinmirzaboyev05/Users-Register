@@ -42,24 +42,11 @@ const postData = async (link, newData) => {
   const req = await fetch(link, {
     method: "POST",
     headers: {
-      "Content-Type": "aplication/json",
+      "Content-Type": "application/json",
     },
     body: JSON.stringify(newData),
   });
   const data = req.json();
-  console.log(data);
-};
-
-// update data function
-const updateData = async (link, updatedData) => {
-  const req = await fetch(link, {
-    method: "PUT", // PUT metodi yangilash uchun ishlatiladi
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(updatedData),
-  });
-  const data = await req.json();
   console.log(data);
 };
 
@@ -74,6 +61,7 @@ registerBtn.addEventListener("click", (e) => {
       login: userLogin.value,
       password: userPassword.value,
     };
+    alert("Kiritildi")
     fullName.value = "";
     email.value = "";
     userLogin.value = "";
