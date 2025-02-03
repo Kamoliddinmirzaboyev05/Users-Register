@@ -173,7 +173,9 @@ th{
   color: white;
 }
 td{
+    padding-left: 10px;
     font-weight: 500;
+    text-align: left;
 }
 thead{
     background-color: green;
@@ -182,5 +184,28 @@ tr{
     height: 45px;
 }
 tbody tr:nth-child(odd) {
-  background-color: rgb(174, 213, 253);
+  background-color: rgb(187, 217, 248);
+
+}
+.functions{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding-top: 15px;
+    width: 100px;
+    overflow: hidden;
+    border: none;
+}
+.functions button{
+    width: 20px;
+    height: 40px;
+}
+.update{
+    font-size: 16px;
+    color: green;
+}
+.delete{
+    font-size: 16px;
+    color: red;
 }

@@ -22,13 +22,12 @@ const apiLink = "https://679e2ea0946b0e23c062c4e8.mockapi.io/users/user";
 const getData = async (link) => {
   const req = await fetch(link);
   const data = await req.json();
-  logData(data);
   identify(data);
   writeData(data);
 };
-if(localStorage.getItem("enter") == "true"){
-    body.classList.add("enter")
-    getData(apiLink)
+if (localStorage.getItem("enter") == "true") {
+  body.classList.add("enter");
+  getData(apiLink);
 }
 toLog.addEventListener("click", () => {
   formBack.classList.add("loginActive");
@@ -37,25 +36,31 @@ toReg.addEventListener("click", () => {
   formBack.classList.remove("loginActive");
 });
 
-
 // getData function for getting API data
 
-// getData(apiLink)
-const logData = (datab) => {
-  console.log(datab);
-};
-// postData function for posting data to API
 const postData = async (link, newData) => {
   const req = await fetch(link, {
     method: "POST",
     headers: {
-      "Content-Type": "application/json",
+      "Content-Type": "aplication/json",
     },
     body: JSON.stringify(newData),
   });
+  const data = req.json();
+  console.log(data);
+};
 
+// update data function
+const updateData = async (link, updatedData) => {
+  const req = await fetch(link, {
+    method: "PUT", // PUT metodi yangilash uchun ishlatiladi
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(updatedData),
+  });
   const data = await req.json();
-  console.log("Yangi foydalanuvchi qo'shildi:", data);
+  console.log(data);
 };
 
 // registration function
@@ -79,13 +84,14 @@ registerBtn.addEventListener("click", (e) => {
   }
 });
 
+// identification function
 const identify = (DB) => {
   DB.forEach((user) => {
     if (
       loginInput.value == user.login &&
       passwordInput.value == user.password
     ) {
-        localStorage.setItem("enter", "true")
+      localStorage.setItem("enter", "true");
       body.classList.add("enter");
     } else {
       console.log("parol login xato");
@@ -96,6 +102,7 @@ loginBtn.addEventListener("click", () => {
   getData(apiLink);
 });
 
+// write data function
 const writeData = (DB) => {
   DB.forEach((item) => {
     tbody.innerHTML += `
@@ -105,6 +112,10 @@ const writeData = (DB) => {
                 <td>${item.email}</td>
                 <td>${item.login}</td>
                 <td>${item.password}</td>
+                <td class="functions">
+                <i class="fas fa-trash delete"></i>
+               <i class="fas fa-pen update"></i>
+                 </td>
               </tr>
     `;
   });
