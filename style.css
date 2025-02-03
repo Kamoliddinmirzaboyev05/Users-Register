@@ -209,3 +209,41 @@ tbody tr:nth-child(odd) {
     font-size: 16px;
     color: red;
 }
+
+/* Update modal */
+
+.update-modal{
+  position: fixed;
+  top: -1150px;
+  left: 35%;
+  width: 400px;
+  /* height: 300px; */
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 30px;
+  border-radius: 12px;
+  gap: 15px;
+  box-shadow: 0px 0px 10px gray;
+}
+.update-modal input{
+width: 100%;
+outline: none;
+padding: 5px 15px;
+}
+.modalSaveBtn{
+  width: 100%;
+  text-align: center;
+  background-color: green;
+  color: white;
+  padding: 10px;
+  border: none;
+  font-weight: 600;
+  font-size: 16px;
+  border-radius: 4px;
+}
+.modalSaveBtn:hover{
+  background-color: rgb(11, 163, 11);
+}

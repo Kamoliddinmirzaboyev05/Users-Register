@@ -61,7 +61,7 @@ registerBtn.addEventListener("click", (e) => {
       login: userLogin.value,
       password: userPassword.value,
     };
-    alert("Kiritildi")
+    alert("Kiritildi");
     fullName.value = "";
     email.value = "";
     userLogin.value = "";
@@ -86,7 +86,8 @@ const identify = (DB) => {
     }
   });
 };
-loginBtn.addEventListener("click", () => {
+loginBtn.addEventListener("click", (e) => {
+  e.preventDefault();
   getData(apiLink);
 });
 
